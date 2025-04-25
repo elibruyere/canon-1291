@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="la">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canon 1291 - Analyse interactive</title>
+  <style>
+    body { font-family: sans-serif; padding: 1rem; line-height: 1.6; }
+    .nominatif { background-color: #fff176; }
+    .accusatif { background-color: #81c784; }
+    .genitif { background-color: #64b5f6; }
+    .datif { background-color: #ffb74d; }
+    .ablatif { background-color: #e57373; }
+    .mot { cursor: pointer; padding: 0.1em 0.2em; border-radius: 4px; transition: background 0.3s; }
+    .tooltip {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #222;
+      color: #fff;
+      padding: 0.6em;
+      font-size: 1rem;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Canon 1291</h1>
+  <p>
+    <span class="mot ablatif" data-info="Préposition + accusatif : en vue de">Ad</span>
+    <span class="mot" data-info="Adverbe : validement">valide</span>
+    <span class="mot accusatif" data-info="Gérondif passif neutre pluriel accusatif : qui doivent être aliénés">alienanda</span>
+    <span class="mot accusatif" data-info="Nom neutre pluriel accusatif : les biens">bona</span>,
+    <span class="mot nominatif" data-info="Pronom relatif neutre pluriel nominatif : qui">quae</span>
+    <span class="mot nominatif" data-info="Nom féminin singulier nominatif : personne">personae</span>
+    <span class="mot nominatif" data-info="Adjectif féminin singulier : juridique">iuridicae</span>
+    <span class="mot nominatif" data-info="Adjectif féminin singulier : publique">publicae</span>
+    <span class="mot ablatif" data-info="Préposition + ablatif : à partir de">ex</span>
+    <span class="mot ablatif" data-info="Adjectif féminin singulier ablatif : légitime">legitima</span>
+    <span class="mot ablatif" data-info="Nom féminin singulier ablatif : assignation">assignatione</span>
+    <span class="mot accusatif" data-info="Nom neutre singulier accusatif : patrimoine">patrimonium</span>
+    <span class="mot accusatif" data-info="Adjectif neutre singulier accusatif : stable">stabile</span>
+    <span class="mot" data-info="Verbe : ils constituent">constituunt</span>
+    <span class="mot" data-info="et">et</span>
+    <span class="mot genitif" data-info="Pronom relatif génitif pluriel : dont">quorum</span>
+    <span class="mot nominatif" data-info="Nom masculin singulier nominatif : valeur">valor</span>
+    <span class="mot accusatif" data-info="Nom féminin singulier accusatif : somme">summam</span>
+    <span class="mot ablatif" data-info="Nom neutre singulier ablatif : par le droit">iure</span>
+    <span class="mot accusatif" data-info="Adjectif féminin singulier accusatif : définie">definitam</span>
+    <span class="mot" data-info="Verbe : dépasse">excedit</span>,
+    <span class="mot" data-info="Verbe passif : est requise">requiritur</span>
+    <span class="mot nominatif" data-info="Nom féminin singulier nominatif : la permission">licentia</span>
+    <span class="mot genitif" data-info="Nom féminin singulier génitif : de l'autorité">auctoritatis</span>
+    <span class="mot ablatif" data-info="Préposition + accusatif : selon">ad</span>
+    <span class="mot accusatif" data-info="Nom féminin singulier accusatif : norme">normam</span>
+    <span class="mot genitif" data-info="Nom neutre singulier génitif : du droit">iuris</span>
+    <span class="mot genitif" data-info="Adjectif génitif singulier : compétent">competentis</span>
+    .
+  </p>
+
+  <div class="tooltip" id="tooltip"></div>
+
+  <script>
+    const mots = document.querySelectorAll('.mot');
+    const tooltip = document.getElementById('tooltip');
+    mots.forEach(mot => {
+      mot.addEventListener('click', () => {
+        tooltip.innerText = mot.getAttribute('data-info');
+        tooltip.style.display = 'block';
+      });
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.classList.contains('mot')) {
+        tooltip.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
